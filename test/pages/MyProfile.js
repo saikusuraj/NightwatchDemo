@@ -1,0 +1,31 @@
+var locators={
+    viewProfile:'a.link-white.text-underline',
+    addPhoto:'a[data-hover-z="1"]',
+    firstName:'#exampleInputFirstName',
+    lastName:'#exampleInputLastName',
+    emailAddress:'#inputEmail3',
+    changePassword:'#inputPassword3',
+    website:'#website',
+    checkBox:'label[for="checkbox3"]',
+    saveChanges:'button[type="submit"]'
+};
+function MyProfile(browser){
+    this.browser=browser;
+}
+MyProfile.prototype={
+  clickOnProfile:function(){
+    this.browser.waitForElementVisible(locators['viewProfile'],10000);
+    this.browser.click(locators['viewProfile']);
+},
+  checkForElements:function(){
+    this.browser.waitForElementVisible(locators['addPhoto'],10000);
+    this.browser.waitForElementVisible(locators['firstName'],10000);
+    this.browser.waitForElementVisible(locators['lastName'],10000);
+    this.browser.waitForElementVisible(locators['emailAddress'],10000);
+    this.browser.waitForElementVisible(locators['changePassword'],10000);
+    this.browser.waitForElementVisible(locators['website'],10000);
+    this.browser.waitForElementVisible(locators['checkBox'],10000);
+    this.browser.waitForElementVisible(locators['saveChanges'],10000);
+  }
+};
+module.exports=MyProfile;
